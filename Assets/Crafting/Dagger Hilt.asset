@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e010146d92a47979ee0a774c1a1b97, type: 3}
+  m_Name: Dagger Hilt
+  m_EditorClassIdentifier: 
+  itemName: new_salvage
+  stackable: 1
+  currentStackSize: 0
+  maxStackSize: 99
+  salvagePrefab: {fileID: 0}
+  baseMaterials: {fileID: 11400000, guid: faff54e1fb03c4e14b2c5dc44b40396b, type: 2}
