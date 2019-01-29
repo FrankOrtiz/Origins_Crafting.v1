@@ -3157,6 +3157,17 @@ Prefab:
       propertyPath: m_Name
       value: Slot
       objectReference: {fileID: 0}
+    - target: {fileID: 114849555592667172, guid: 8195ce9340d054bab88de4b6cde929df,
+        type: 2}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: b3a871123a14045d28cd2a03d6c36dbc,
+        type: 2}
+    - target: {fileID: 114950700802776842, guid: 8195ce9340d054bab88de4b6cde929df,
+        type: 2}
+      propertyPath: m_Text
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8195ce9340d054bab88de4b6cde929df, type: 2}
   m_IsPrefabParent: 0
