@@ -1,11 +1,8 @@
 ﻿<Properties StartupConfiguration="{7E642B65-E0BF-0C1C-5D3B-C1943823101B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Crafting/SlotManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlayerScript.cs">
     <Files>
-      <File FileName="Assets/Crafting/Material.cs" Line="9" Column="38" />
-      <File FileName="Assets/Crafting/Salvage.cs" Line="11" Column="1" />
-      <File FileName="Assets/Crafting/GameManagerTest.cs" Line="6" Column="47" />
-      <File FileName="Assets/Crafting/SlotManager.cs" Line="16" Column="1" />
-      <File FileName="Assets/Crafting/Item.cs" Line="24" Column="10" />
+      <File FileName="Assets/PlayerScript.cs" Line="40" Column="60" />
+      <File FileName="Assets/Crafting/Scripts/Weapon.cs" Line="9" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
