@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Crafting.Salvaging {
-	using Materials;
+	using Crafting.Items;
 
 	[CreateAssetMenu(menuName = ("Crafting/Salvage"))]
 	public class Salvage : Items.Item {

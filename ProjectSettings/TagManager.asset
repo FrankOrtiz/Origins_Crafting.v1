@@ -4,7 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Inventory
+  - ItemCount
+  - SoulEquipped
+  - WeaponEquipped
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -41,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Inventory
+    uniqueID: 427938809
+    locked: 0
+  - name: DraggedItem
+    uniqueID: 2718404411
     locked: 0
