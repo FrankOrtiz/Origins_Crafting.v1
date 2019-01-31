@@ -5,8 +5,14 @@ using UnityEngine.EventSystems;
 
 public class ItemDropHandler : MonoBehaviour, IDropHandler {
 	Transform parentSlot;
+    public PlayerScript playerScript;
 
-	public GameObject itemInSlot{
+    private void Awake()
+    {
+        playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
+    }
+
+    public GameObject itemInSlot{
 		get { 
 			if (parentSlot.childCount > 0){
 				return parentSlot.GetChild (0).transform.gameObject;
@@ -25,20 +31,47 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler {
 
 		if (parentSlot.GetComponent<ItemDropHandler>().ProperItemType(ItemDragHandler.itemBeingDragged)){
 			DropItemIntoSlot ();
-		}
+            SetEquipment();
+        }
 	}
 
 	public virtual bool ProperItemType(GameObject itemBeingDragged){
-		Debug.Log ("Base");
+		Debug.Log ("Item type not registered.");
 		return false;
 	}
 
 	public void DropItemIntoSlot(){
-		if (itemInSlot) {
-			itemInSlot.transform.position = ItemDragHandler.startPosition;
-			itemInSlot.transform.SetParent (ItemDragHandler.startParent);
-		}
+        // TODO Handle slot acceptence check before itemInSlot is re-registered to dragged item's previous slot
+        // IsEquippable() IsCorrectSlot() CanBePlacedIntoSlot() ect...
+        if (itemInSlot) // If there is an item currently in target slot
+        {
+            itemInSlot.transform.position = ItemDragHandler.startPosition;
+            itemInSlot.transform.SetParent(ItemDragHandler.startParent);
 
-		ItemDragHandler.itemBeingDragged.transform.SetParent (parentSlot);
-	}
+            ItemDragHandler.itemBeingDragged.transform.SetParent(parentSlot);
+        }
+
+        if (!(ItemDragHandler.itemBeingDragged.transform.parent.name == "WeaponSlot") && !(ItemDragHandler.itemBeingDragged.transform.parent.name == "SoulSlot")) {
+            ItemDragHandler.itemBeingDragged.transform.SetParent(parentSlot);
+
+        }
+    }
+
+    void SetEquipment()
+    {
+        // TODO change to subscription hook
+        switch (ItemDragHandler.itemBeingDragged.GetComponent<ItemHolderScript>().item.GetType().ToString())
+        {
+            case "Crafting.Items.WeaponSouls":
+                if(parentSlot.name == "SoulSlot")
+                    playerScript.UpdateSoulEquipped();
+                break;
+            case "Crafting.Items.Weapon":
+                if(parentSlot.name == "WeaponSlot")
+                    playerScript.UpdateWeaponEquipped();
+                break;
+            default:
+                break;
+        }
+    }
 }

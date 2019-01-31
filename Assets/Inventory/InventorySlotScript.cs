@@ -6,7 +6,6 @@ public class InventorySlotScript : SlotManagerScript {
 
 	public override bool ProperItemType (GameObject itemBeingDragged) {
 		item = itemBeingDragged.gameObject.GetComponent<ItemHolderScript> ().item;
-		Debug.Log (item.GetType ().ToString ());
 		if (item.GetType ().ToString () == "Crafting.Items.WeaponSouls" || item.GetType ().ToString () == "Crafting.Items.Material" || item.GetType ().ToString () == "Crafting.Items.Weapon") {
 			return true;
 		}

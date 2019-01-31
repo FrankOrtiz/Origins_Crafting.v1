@@ -7,7 +7,7 @@ namespace Crafting.Items
 {
     public class Item : ScriptableObject
     {
-		[SerializeField] string itemName = "new_item";
+		[SerializeField] public string itemName = "new_item";
 		[SerializeField] public bool isStackable = false;
 		[SerializeField] public int currentStackSize = 1;
 		[SerializeField] public int maxStackSize = 99;

@@ -5,12 +5,13 @@ using UnityEngine;
 public class WeaponSlotScript : SlotManagerScript {
 	public Crafting.Items.Weapon weaponInSlot;
 
-	public override bool ProperItemType (GameObject itemBeingDragged) {
+    public override bool ProperItemType (GameObject itemBeingDragged) {
 		item = itemBeingDragged.gameObject.GetComponent<ItemHolderScript> ().item;
-		Debug.Log (item.GetType ().ToString ());
-		if (item.GetType ().ToString () == "Crafting.Items.Weapon") {
+		if (item.GetType ().ToString () == "Crafting.Items.Weapon") 
+        {
 			return true;
 		}
 		return false;
 	}
+
 }

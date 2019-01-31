@@ -12,12 +12,50 @@ public class PlayerScript : MonoBehaviour {
     [SerializeField] GameObject weaponInSlot;
     [SerializeField] GameObject soulInSlot;
 
+    Weapon weaponEquipped;
+    WeaponSouls weaponSoulEquipped;
+
     // Use this for initialization
-    void Awake()
+    void Start()
+    {
+        UpdateEquipmentEquipped();
+    }
+
+    public void UpdateWeaponEquipped()
     {
         weaponInSlot = weaponSlot.transform.GetChild(0).gameObject;
+        weaponEquipped = weaponInSlot.GetComponent<ItemHolderScript>().item as Weapon;
+
+        minBaseDamage = weaponEquipped.minWeaponDamage;
+        maxBaseDamage = weaponEquipped.maxWeaponDamage;
+
+        Debug.Log("Equipped: " + weaponEquipped.itemName);
+
+        statsAmountPanel.transform.Find("DamageRangeAmountText").GetComponent<Text>().text = minBaseDamage.ToString() + " - " + maxBaseDamage.ToString();
+    }
+
+    public void UpdateSoulEquipped()
+    {
         soulInSlot = soulSlot.transform.GetChild(0).gameObject;
-        UpdatePlayerAttributes();
+        weaponSoulEquipped = soulInSlot.GetComponent<ItemHolderScript>().item as WeaponSouls;
+
+        stamina = weaponSoulEquipped.stamina;
+        strength = weaponSoulEquipped.strength;
+        dexterity = weaponSoulEquipped.dexterity;
+        intellect = weaponSoulEquipped.intellect;
+
+        Debug.Log("Equipped: " + weaponSoulEquipped.itemName);
+
+        statsAmountPanel.transform.Find("StaminaAmountText").GetComponent<Text>().text = stamina.ToString();
+        statsAmountPanel.transform.Find("StrengthAmountText").GetComponent<Text>().text = strength.ToString();
+        statsAmountPanel.transform.Find("DexterityAmountText").GetComponent<Text>().text = dexterity.ToString();
+        statsAmountPanel.transform.Find("IntellectAmountText").GetComponent<Text>().text = intellect.ToString();
+    }
+
+    void UpdateEquipmentEquipped()
+    {
+        UpdateWeaponEquipped();
+        UpdateSoulEquipped();
     }
 
     // Split into AttributesScript
@@ -27,16 +65,4 @@ public class PlayerScript : MonoBehaviour {
     [SerializeField] int intellect;
     [SerializeField] int minBaseDamage;
     [SerializeField] int maxBaseDamage;
-
-    void UpdatePlayerAttributes() {
-        minBaseDamage = weaponInSlot.GetComponent<Weapon>().minWeaponDamage;
-        maxBaseDamage = weaponInSlot.GetComponent<Weapon>().maxWeaponDamage;
-
-        stamina = soulInSlot.GetComponent<WeaponSouls>().stamina;
-        stamina = soulInSlot.GetComponent<WeaponSouls>().strength;
-        stamina = soulInSlot.GetComponent<WeaponSouls>().dexterity;
-        stamina = soulInSlot.GetComponent<WeaponSouls>().intellect;
-
-        //statsAmountPanel.transform.GetComponentInChildren
-    }
 }

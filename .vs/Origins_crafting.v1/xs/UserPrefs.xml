@@ -1,8 +1,16 @@
 ﻿<Properties StartupConfiguration="{7E642B65-E0BF-0C1C-5D3B-C1943823101B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/PlayerScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Crafting/Scripts/Item.cs">
     <Files>
-      <File FileName="Assets/PlayerScript.cs" Line="40" Column="60" />
       <File FileName="Assets/Crafting/Scripts/Weapon.cs" Line="9" Column="24" />
+      <File FileName="Assets/Inventory/InventorySlotScript.cs" Line="9" Column="1" />
+      <File FileName="Assets/PlayerScript.cs" Line="32" Column="53" />
+      <File FileName="Assets/Inventory/ItemDragHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Inventory/ItemDropHandler.cs" Line="63" Column="21" />
+      <File FileName="Assets/Inventory/SoulSlotScript.cs" Line="10" Column="1" />
+      <File FileName="Assets/Inventory/WeaponSlotScript.cs" Line="10" Column="1" />
+      <File FileName="Assets/Inventory/ItemHolderScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Inventory/SlotManagerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Crafting/Scripts/Item.cs" Line="17" Column="38" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
