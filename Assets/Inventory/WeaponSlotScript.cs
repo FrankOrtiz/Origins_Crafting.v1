@@ -6,12 +6,8 @@ public class WeaponSlotScript : SlotManagerScript {
 	public Crafting.Items.Weapon weaponInSlot;
 
     public override bool ProperItemType (GameObject itemBeingDragged) {
-		item = itemBeingDragged.gameObject.GetComponent<ItemHolderScript> ().item;
-		if (item.GetType ().ToString () == "Crafting.Items.Weapon") 
-        {
-			return true;
-		}
-		return false;
-	}
+        item = itemBeingDragged.gameObject.GetComponent<ItemHolderScript>().item;
+        return item.GetType().ToString()== "Crafting.Items.Weapon" ? true : false;
+    }
 
 }

@@ -29,7 +29,11 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler {
 			parentSlot = transform;
 		}
 
-		if (parentSlot.GetComponent<ItemDropHandler>().ProperItemType(ItemDragHandler.itemBeingDragged)){
+        // only handles IF item exists in the slot moving to
+        bool itemDraggedFitsIntoTargetParentSlot = parentSlot.GetComponent<ItemDropHandler>().ProperItemType(ItemDragHandler.itemBeingDragged);
+        bool itemInTargetSlotFitsIntoParentSlot = itemInSlot && ItemDragHandler.itemBeingDragged.transform.parent.GetComponent<ItemDropHandler>().ProperItemType(itemInSlot);
+
+        if (itemDraggedFitsIntoTargetParentSlot && itemInTargetSlotFitsIntoParentSlot){
 			DropItemIntoSlot ();
             SetEquipment();
         }
@@ -63,11 +67,11 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler {
         switch (ItemDragHandler.itemBeingDragged.GetComponent<ItemHolderScript>().item.GetType().ToString())
         {
             case "Crafting.Items.WeaponSouls":
-                if(parentSlot.name == "SoulSlot")
+                if (parentSlot.name == "SoulSlot")
                     playerScript.UpdateSoulEquipped();
                 break;
             case "Crafting.Items.Weapon":
-                if(parentSlot.name == "WeaponSlot")
+                if (parentSlot.name == "WeaponSlot")
                     playerScript.UpdateWeaponEquipped();
                 break;
             default:
